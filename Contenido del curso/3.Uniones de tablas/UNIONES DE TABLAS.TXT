@@ -1,0 +1,98 @@
+--AS
+--Sirve para crear un alias para una columna o un resultado
+--SELECT "ID" AS "CLAVE" FROM "esquema"."PEDIDOS"
+--SELECT "ID" AS "CLAVE", "PRODUCTO","IMPORTE" AS "VALOR" 
+--FROM "esquema"."PEDIDOS"
+--SELECT "PRODUCTO", SUM("IMPORTE") AS "TOTAL"
+--FROM "esquema"."PEDIDOS"
+--GROUP BY "PRODUCTO"
+--HAVING SUM("IMPORTE") > 200
+
+--EJERCICIO AS
+--Mostrar la columna PRODUCTO y la columna PRECIO renombrada como VALOR de la tabla PRODUCTOS
+--SELECT "PRODUCTO", "PRECIO" AS "VALOR"
+--FROM "esquema"."PRODUCTOS"
+
+--INNER JOIN
+--Permiten agrupar datos de dos tablas en un único resultado SQL.
+--Es decir, podemos juntar dos tablas con join y seleccionar las columnas de cada uno de las tablas.
+--Que queremos tener nuestro resultado de SQL.
+--SELECT "NOMBRE", "DEPARTAMENTO" 
+--FROM "esquema"."PERSONAS" INNER JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--EJERCICIO INNER JOIN
+--Realizar un INNER JOIN entre las tablas "PERSONAS" y "DEPARTAMENTOS"
+--seleccionando las columnas "NOMBRE", "APELLIDO1" y "DNI" de la tabla "PERSONAS"
+--y la columna "DEPARTAMENTO" de la tabla "DEPARTAMANTOS"
+--SELECT "NOMBRE", "APELLIDO1", "DNI", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" INNER JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--FULL JOIN
+--Full Join combina los valores de la primera tabla con los valores de la segunda tabla
+--Pero en este caso siempre devolver a las filas de las dos tablas 
+--Aunque la condicion no se cumpla
+--SELECT "NOMBRE", "APELLIDO1", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" FULL JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--EJERCICIO FULL JOIN
+--Realizar un FULL JOIN entre las tablas "PERSONAS" y "DEPARTAMENTOS"
+--seleccionando las columnas "NOMBRE", "APELLIDO1" y "DNI" de la tabla "PERSONAS"
+--y la columna "DEPARTAMENTO" de la tabla "DEPARTAMENTOS"
+--utilizando la columna en comun en ambas tablas
+--SELECT "NOMBRE", "APELLIDO1", "DNI", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" FULL JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--LEFT JOIN
+--El Left Coin siempre devolverá las filas de la primera tabla, aunque no tengan
+--correspondencia, aunque no se cumple la condición con la segunda tabla.
+--SELECT "NOMBRE", "APELLIDO1", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" LEFT JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--EJERCICIO LEFT JOIN
+--Realizar un LEFT JOIN entre las tablas "PERSONAS" y "DEPARTAMENTOS"
+--seleccionando las columnas "NOMBRE", "APELLIDO1" y "DNI" de la tabla "PERSONAS"
+--y la columna "DEPARTAMENTO" de la tabla "DEPARTAMENTOS"
+--SELECT "NOMBRE", "APELLIDO1", "DNI", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" LEFT JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--RIGHT JOIN
+--Right join  combinan los valores de la primera tabla con los valores de la segunda tabla
+--pero siempre devolverá las filas de la segunda tabla de la tabla a la derecha.
+--Incluso aunque no se cumpla la condición de que los valores de las columnas sean iguales
+--SELECT "NOMBRE", "APELLIDO1", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" RIGHT JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--EJERCICIO RIGHT JOIN
+--Realizar un RIGHT JOIN entre las tablas "PERSONAS" y "DEPARTAMENTOS"
+--seleccionando las columnas "NOMBRE", "APELLIDO1" y "DNI" de la tabla "PERSONAS"
+--y la columna "DEPARTAMENTO" de la tabla "DEPARTAMENTOS"
+--SELECT "NOMBRE", "APELLIDO1", "DNI", "DEPARTAMENTO"
+--FROM "esquema"."PERSONAS" RIGHT JOIN "esquema"."DEPARTAMENTOS"
+--ON "esquema"."PERSONAS"."DEP" = "esquema"."DEPARTAMENTOS"."DEP"
+
+--UNION
+--Union sirve para combinar los resultados de dos o más sentencias SQL
+--Las dos sentencias SQL o SELECT que queremos unir tienen que tener
+--el mismo número de columnas que el mismo tipo de dato y en el mismo orden.
+--SELECT "PRODUCTO", "IMPORTE"
+--FROM "esquema"."PEDIDOS" WHERE  "IMPORTE" > 200
+--UNION
+--SELECT "PRODUCTO", "IMPORTE" FROM "esquema"."PEDIDOS" WHERE "PRODUCTO" = 'RATON'
+
+--EJERCICIO UNION
+--Utilizar UNION para unir los resultados de estas 2 SELECT
+--SELECT 1
+--	Seleccionar el producto, importe y fecha de los pedidos con importe = 150
+--SELECT 2
+--	Seleccionar el producto, importe y fecha de los pedidos cuyo producto sea un ordenador
+--SELECT "PRODUCTO", "IMPORTE", "FECHA"
+--FROM "esquema"."PEDIDOS" WHERE  "IMPORTE" = 150
+--UNION
+--SELECT "PRODUCTO", "IMPORTE", "FECHA" FROM "esquema"."PEDIDOS" WHERE "PRODUCTO" = 'ORDENADOR'
