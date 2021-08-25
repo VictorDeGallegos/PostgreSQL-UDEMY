@@ -1,0 +1,27 @@
+--GROUP BY 
+--La funcion GROUP BY se utiliza para juntas filas de resultado 
+--que coincidan en el valor de alguna columna
+
+--SELECT "PRODUCTO", SUM("IMPORTE")
+--FROM "esquema"."PEDIDOS"
+--GROUP BY "PRODUCTO"
+
+--EJERCICIO GROUP BY 
+--Mostrar el valor medio de los pedidos segun el producto vendido
+--SELECT "PRODUCTO", ROUND(AVG("IMPORTE"),2)
+--FROM "esquema"."PEDIDOS"
+--GROUP BY "PRODUCTO"
+
+--HAVING
+--Se utiliza para incluir condiciones donde se incluyan operadores de agrupacion
+--SELECT "PRODUCTO", SUM("IMPORTE")
+--FROM "esquema"."PEDIDOS"
+--GROUP BY "PRODUCTO"
+--HAVING SUM("IMPORTE") >200
+
+--EJERCICIO HAVING
+--Seleccionar el importe maximo de los pedidos que sean >100, agrupados por productos
+--SELECT "PRODUCTO", MAX("IMPORTE")
+--FROM "esquema"."PEDIDOS"
+--GROUP BY "PRODUCTO"
+--HAVING SUM("IMPORTE") >100
