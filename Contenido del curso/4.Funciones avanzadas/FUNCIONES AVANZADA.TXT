@@ -1,0 +1,115 @@
+--FORMATOS FECHA Y HORA
+
+--SELECT NOW()
+--SELECT TIMEOFDAY
+--SELECT CURRENT_TIME
+--SELECT CURRENT_DATE
+------------------------------------------------------------------------
+--EXTRAC() extrae el valor de la fecha indicado
+
+--SELECT EXTRACT(DAY FROM "FECHA") As "DIA"
+--FROM "esquema"."PEDIDOS"
+
+--SELECT EXTRACT(MONTH FROM "FECHA") As "DIA"
+--FROM "esquema"."PEDIDOS"
+
+------------------------------------------------------------------------
+--AGE() Devuelve la informacion de antiguedad desd que se grabo el pedido
+--SELECT AGE("FECHA") As "ANTIGUEDAD"
+--FROM "esquema"."PEDIDOS"
+------------------------------------------------------------------------
+
+--to_char convierte el formato de fecha
+--SELECT to_char(current_timestamp, 'HH:MM:YY')
+--FROM "esquema"."PEDIDOS"
+
+--SELECT to_char("FECHA", 'HH:MM:YY')
+--FROM "esquema"."PEDIDOS"
+------------------------------------------------------------------------
+
+--EJERCICIO FECHA Y HORA
+--Crear 2 columnas con el mes y el dia de la columna "FECHA" de la tabla "PEDIDOS"
+--SELECT EXTRACT(MONTH FROM "FECHA") As "MES", EXTRACT(DAY FROM "FECHA") As "DIA"
+--FROM "esquema"."PEDIDOS"
+------------------------------------------------------------------------
+
+
+--FUNCIONES MATEMATICAS
+--SELECT "IMPORTE", "CANTIDAD", "IMPORTE" / "CANTIDAD" AS "PRECIO UNITARIO"
+--FROM "esquema"."PEDIDOS" 
+
+--EJERCICIO FUNCIONES MATEMATICAS
+--CALCULAR EL DOBLE DE LA COLUMNA IMPORTE DE LA TABLA PEDIDOS
+--SELECT  "IMPORTE" * 2 AS "PRECIO DOBLE"
+--FROM "esquema"."PEDIDOS" 
+------------------------------------------------------------------------
+
+
+--FUNCIONES DE CARACTERES
+--LENGHT AYUDA  ACONTAR EL NUMERO DE CARACTERES DE LA PALABRA
+--SELECT "NOMBRE", LENGTH ("NOMBRE") AS "LONGITUD"
+--FROM "esquema"."PERSONAS"
+
+--LOWER convierte en minusculas la palabra
+--SELECT "NOMBRE", LOWER("NOMBRE") AS "Minusculas"
+--FROM "esquema"."PERSONAS"
+
+--LEFT devuelve las x primeras letras de la palabra
+--SELECT "NOMBRE", LEFT("NOMBRE",3) AS "LONGITUD"
+--FROM "esquema"."PERSONAS"
+
+-- || CONCATENA los datos de varias tablas para unirlas y hacer 1
+--SELECT "NOMBRE" || ' ' || "APELLIDO1" || ' '|| "APELLIDO2" AS "Nombre completo"
+--FROM "esquema"."PERSONAS"
+
+--EJERCICIO FUNCIONES DE CARACTERES
+--Crear un campo "Mail" con el valor "NOMBRE" en minusculas y el texto "@empresa.com"
+--SELECT LOWER("NOMBRE") || '@empresa.com'  AS "Mail"
+--FROM "esquema"."PERSONAS"
+------------------------------------------------------------------------
+
+
+--SUBCONSULTA CON VALOR NUMERICO
+--Utilizar el resultado de una consulta para otra consulta diferente.
+--SELECT "PRODUCTO", "IMPORTE", "FECHA" FROM "esquema"."PEDIDOS"
+--WHERE "IMPORTE" > (SELECT AVG("IMPORTE") FROM "esquema". "PEDIDOS")
+
+--SUBCONSULTA CON LISTA DE VALORES
+--SELECT "DEP", "DEPARTAMENTO" FROM "esquema"."DEPARTAMENTOS"
+--WHERE "DEP" IN (SELECT "DEP" FROM "esquema"."PERSONAS"WHERE "EDAD" > 30)
+
+--SUBCONSULTA EXISTS
+--Seleccionaremos cuando existe algun valor en la subconsulta
+--SELECT "NOMBRE","APELLIDO1","DEP"
+--FROM "esquema"."PERSONAS" AS P
+--WHERE  EXISTS
+--(SELECT * 
+ --FROM "esquema"."DEPARTAMENTOS" AS D
+--WHERE D."DEP" = P."DEP")
+
+--EJERCICIO SUBCONSULTAS
+--Seleccionar las columnas DEP y DEPARTAMENTO de la tabla DEPARTAMENTOS
+--para aquellos departamentos que personas cuya edad sea > 30 y < 50
+--SELECT "DEP","DEPARTAMENTO"
+--FROM "esquema"."DEPARTAMENTOS" 
+--WHERE "DEP" IN
+--(SELECT "DEP" FROM "esquema"."PERSONAS" 
+--WHERE "EDAD" > 30 AND "EDAD" < 50 )
+------------------------------------------------------------------------
+
+
+--JOIN de una tabla sobre si misma
+--Se utiliza para comparar registros de una misma tabla en función de los
+--valores de alguna columna de esa misma tabla.
+--SELECT T1."PRODUCTO", T2."PRODUCTO", T1."IMPORTE" 
+--FROM "esquema"."PEDIDOS" AS T1
+--INNER JOIN "esquema"."PEDIDOS" AS T2
+--ON(T1."ID" != T2."ID") AND (T1."IMPORTE" = T2."IMPORTE")
+
+--EJERCICIO JOIN DE UNA TABLA SOBRE SI MISMA
+--Seleccionar parejas de pedidos que tengan el mismo valor en la columna cantidad
+--SELECT T1."ID", T2."ID", T1."CANTIDAD" 
+--FROM "esquema"."PEDIDOS" AS T1
+--INNER JOIN "esquema"."PEDIDOS" AS T2
+--ON(T1."ID" != T2."ID") AND (T1."CANTIDAD" = T2."CANTIDAD")
+
