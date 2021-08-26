@@ -1,0 +1,2 @@
+DELETE FROM ocupaciones
+WHERE id_ocupacion = 3

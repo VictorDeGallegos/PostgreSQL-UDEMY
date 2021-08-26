@@ -1,0 +1,6 @@
+--EJERCICIO
+--Actualizar el otro usuario con el Nombre Juan de la siguiente forma
+-- 1.- Su campo mail debe tener el valor 'juangonzalez@mail.com'
+UPDATE usuarios
+SET mail = 'juangonzalez@mail.com'
+WHERE id_usuario = 2

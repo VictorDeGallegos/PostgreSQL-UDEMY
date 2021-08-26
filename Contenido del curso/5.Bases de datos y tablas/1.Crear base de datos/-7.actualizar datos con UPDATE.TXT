@@ -1,0 +1,3 @@
+UPDATE usuarios
+SET mail = 'antonioperez@mail.com'
+WHERE id_usuario = 1

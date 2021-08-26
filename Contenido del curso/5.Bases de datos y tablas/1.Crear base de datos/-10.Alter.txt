@@ -1,0 +1,3 @@
+--ALTER sirve para cambiar o renombrar nombre de las columnas 
+ALTER TABLE ocupaciones
+RENAME COLUMN descripcion TO tipo_descripcion

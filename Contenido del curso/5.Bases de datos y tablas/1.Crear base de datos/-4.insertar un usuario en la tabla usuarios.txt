@@ -1,0 +1,2 @@
+INSERT INTO usuarios(nombre,apellido1,appellido2,contraseña,mail,fecha_creación)
+VALUES ('Antonio','Perez','Gómez','password','antonio@mail.com',CURRENT_TIMESTAMP)

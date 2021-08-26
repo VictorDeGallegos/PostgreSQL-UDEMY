@@ -1,0 +1,7 @@
+--Ejercicio
+--Crear otro usuario para la tabla usuarios con los siguientes datos
+--nombre = 'Juan', apellido1 = 'Gonzalez', apellido2 = 'Rodriguez'
+--contraseña = 'password2', mail = 'juan@mail.com', fecha_creacion = Fecha y hora actuales
+
+INSERT INTO usuarios(nombre,apellido1,appellido2,contraseña,mail,fecha_creación)
+VALUES ('Juan','Gonzalez','Rodriguez','password2','juan@mail.com',CURRENT_TIMESTAMP)

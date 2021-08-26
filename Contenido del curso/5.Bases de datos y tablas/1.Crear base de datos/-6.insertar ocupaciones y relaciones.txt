@@ -1,0 +1,8 @@
+INSERT INTO ocupaciones(tipo_ocupacion,descripcion)
+VALUES ('Programador','Realizacion de programas informaticos')
+
+
+INSERT INTO usuarios_ocupaciones(id_usuario,id_ocupacion)
+VALUES (1,2)
+INSERT INTO usuarios_ocupaciones(id_usuario,id_ocupacion)
+VALUES (2,1)

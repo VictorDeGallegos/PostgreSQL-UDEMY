@@ -1,0 +1,3 @@
+--DROP sirve para eliminar una columna
+ALTER TABLE ocupaciones
+DROP COLUMN tipo_descripcion

@@ -1,0 +1,9 @@
+--EJERCICIO
+--Crear la tabla ocuapaciones en la base de datos curso2 con las siguientes columnas:
+
+
+CREATE TABLE ocupaciones(
+	id_ocupacion SERIAL PRIMARY KEY, 
+	tipo_ocupacion VARCHAR(100) NOT NULL,
+	descripcion VARCHAR(300) NOT NULL
+)
