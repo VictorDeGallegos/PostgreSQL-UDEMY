@@ -1,0 +1,10 @@
+--EJERCICIO CASE
+--Seleccionar el tipo de ocupacion y una nueva columna denominada inicial
+--con la letra inicial del campo tipo de ocupacion de la tabla ocupaciones
+SELECT tipo_ocupacion,
+CASE 
+	WHEN tipo_ocupacion = 'Administrativo' THEN 'A'
+	WHEN tipo_ocupacion = 'Programador' THEN 'P'
+	ELSE '?'
+END AS inicial
+FROM ocupaciones

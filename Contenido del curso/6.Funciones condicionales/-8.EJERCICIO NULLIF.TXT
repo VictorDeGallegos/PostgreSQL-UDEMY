@@ -1,0 +1,32 @@
+--EJERCICIO NULLIF
+--1.- Crear una nueva tabla de departamentos con las siguientes columnas 
+--	nombre(VARCHAR 50), departamentos(VARCHAR 50)
+--2. Insertar 3 elementos en la nueva tabla departamentos
+--		nombre='Antonio', departamento = 'A'
+--		nombre='Juan', departamento = 'B'
+--		nombre='Maria', departamento = 'A'
+--3.- Calcular el ratio de empleados del departamento 'A' respecto al departamento 'B'
+--4.- Eliminar el empleado del departamento 'B'
+--5.- Volver a calcular el ratio de empleados del departamento 'A' con respecto al 'B'
+--		Utilizar NULL IF para evitar el error de division entre cero
+
+INSERT INTO departamentos(nombre,departamento)
+VALUES
+('Antonio','A'),
+('Juan','B'),
+('Maria','A')
+
+SELECT(
+SUM(CASE WHEN departamento='A' THEN 1 ELSE 0) /
+SUM(CASE WHEN departamento='A' THEN 1 ELSE 0) 
+)AS resultado
+FROM departamentos
+
+DELETE FROM departamentos
+WHERE departamento = 'B'
+
+SELECT(
+SUM(CASE WHEN departamento='A' THEN 1 ELSE 0) /
+NULLIF (SUM(CASE WHEN departamento='A' THEN 1 ELSE 0 END),0 )
+)AS resultado
+FROM departamentos

@@ -1,0 +1,8 @@
+--CASE sirve para ejecutar codigo SQL solamente cuando se dan ciertas condiciones
+SELECT nombre,
+CASE 
+	WHEN nombre = 'Antonio' THEN 'A'
+	WHEN nombre = 'Juan' THEN 'J'
+	ELSE '?'
+END AS resultado
+FROM usuarios

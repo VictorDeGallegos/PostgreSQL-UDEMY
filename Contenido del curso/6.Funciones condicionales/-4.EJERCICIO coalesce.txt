@@ -1,0 +1,18 @@
+--EJERCIAIO COALESCE
+--1.- Crear una nueva tabla de precios con las siguientes columnas 
+--	articulo(VARCHAR), precio(INTEGER), descuentos(INTEGER)
+--2. Insertar 3 filas en la nueva tabla precios
+--		articulo='impresora', precio=100, descuento=10
+--		articulo='raton', precio=30, descuento=5
+--		articulo='ordenador', precio=30, descuento=5
+--3.- Seleccionar las columnas articulo, precio y precio final(precio-descuento)
+--		Utilizar COALESCE para calcular el precio final(Si hay algun valor NULL, cambiarlo por 0)
+INSERT INTO precios(articulo,precio,descuentos)
+VALUES ('Impresora',100,10)
+INSERT INTO precios(articulo,precio,descuentos)
+VALUES ('Raton',30,5)
+INSERT INTO precios(articulo,precio,descuentos)
+VALUES ('Ordenador,30,NULL)
+
+SELECT articulo, precio, (precio -COALESCE (descuento,0)) As precio_final
+FROM precios 

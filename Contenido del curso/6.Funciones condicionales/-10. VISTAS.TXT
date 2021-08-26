@@ -1,0 +1,19 @@
+--VISTAS
+--Cuando se combinan tablas y ciertas condiciones de forma habitual, 
+--puedes convertirlas en una vista para acceder más fácilmente a estos datos.
+--Una vista no almacena los datos físicamente, simplemente almacena la consulta.
+
+--CREAR UNA VISTA
+CREATE VIEW mails AS
+select MAIL from usuarios
+
+--CAMBIAR NOMBRE DE LA VISTA
+CREATE OR REPLACE VIEW mails AS
+select mail,nombre from usuarios
+
+--MODIFICAR NOMBRE DE LA VISTA
+ALTER VIEW mails 
+RENAME TO correos
+
+--ELIMINAR VISTA
+DROP VIEW correos

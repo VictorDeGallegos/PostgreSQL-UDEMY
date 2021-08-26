@@ -1,0 +1,3 @@
+--COALESCE
+--Acepta numero ilimitado de argumentos y  devuelve el primero que no sea nulo
+SELECT COALESCE(1,2,3,4)

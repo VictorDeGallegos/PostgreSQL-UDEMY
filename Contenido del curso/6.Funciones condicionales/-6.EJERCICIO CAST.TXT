@@ -1,0 +1,5 @@
+--EJERCICIO CAST
+--Seleccionar las columnas precio y una nueva columna longitud
+--con la longitud (numero de caracteres) del campo precio
+SELECT precio, CHAR_LENGTH (CAST(precio AS VARCHAR)) AS longitud 
+FROM precios

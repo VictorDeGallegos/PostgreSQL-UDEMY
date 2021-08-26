@@ -1,0 +1,9 @@
+--Importar fichero .csv en una tabla 
+CREATE TABLE tabla1(
+	columna1 VARCHAR(50),
+	columna2 VARCHAR(50),
+	columna3 VARCHAR(50)
+)
+
+--crear csv o simplement importar desde pgadmin
+import/export

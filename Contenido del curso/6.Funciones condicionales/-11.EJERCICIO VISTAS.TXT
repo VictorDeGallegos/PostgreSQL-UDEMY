@@ -1,0 +1,47 @@
+--EJERCICIO VISTA
+--1.- Crear una nueva tabla de pedidos
+--	(id_pedido SERIAL, id_producto INTEGER, cantidad INTEGER, importe_total INTEGER)
+--Insertar las siguientes filas 
+--  id_producto = 1, cantidad = 2, importe_total =100
+--  id_producto = 2, cantidad = 3, importe_total =90
+--Crear la tabla productos
+-- (id_producto SERIAL, nombre VARCHAR(50), precio INTEGER)
+-- Insertar las siguientes filas 
+-- id_producto = 1, nombre = 'Impresora', precio = 50
+-- id_producto = 2, nombre = 'Raton', precio = 30
+
+--Crear un INNER JOIN entre la tabla productos y pedidos para seleccionar el nombre(productos) y cantidad(pedidos)
+--Crear una vista (productos_vendidos) que almacenen los datos del JOIN anterior
+
+
+--CREAR TABLA PEDIDOS
+CREATE TABLE pedidos(
+    id_pedido SERIAL,
+    id_producto INTEGER, 
+    cantidad INTEGER, 
+    importe_total INTEGER
+)
+
+--INSERTAR EN TABLA PEDIDOS
+INSERT INTO pedidos (id_producto, cantidad, importe_total)
+VALUES 
+(1,2,100)
+(2,3,90)
+
+--CREAR TABLA PRODUCTOS
+CREATE TABLE productos(
+    id_producto SERIAL,
+    nombre VARCHAR(50), 
+    precio INTEGER
+)
+
+--INSERTAR EN TABLA PRODUCTOS
+INSERT INTO productos (nombre, precio) 
+VALUES 
+('Impresora',50),
+('Raton',30)
+
+--INNER JOIN PARA ENLAZAR AMBAS TABLAS 
+SELECT nombre, cantidad
+FROM productos INNER JOIN pedidos
+ON productos.id_producto = pedidos.id_producto

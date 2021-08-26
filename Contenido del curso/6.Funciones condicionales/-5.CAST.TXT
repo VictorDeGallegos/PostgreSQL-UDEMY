@@ -1,0 +1,4 @@
+--CAST
+--Permite convertir un tipo de dato en otro tipo diferente
+SELECT CAST(5 ASSELECT articulo, precio, (precio -COALESCE (descuento,0)) As precio_final
+FROM precios )
